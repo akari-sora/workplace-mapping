@@ -76,7 +76,7 @@ wm wrapup write --start "REQ-15：建立開關，預設關"    # 寫好交接並
 需要 Python 3.11 以上。
 
 ```sh
-git clone <這個倉庫> workplace-mapping && cd workplace-mapping
+git clone https://gitlab.com/aa22396584/workplace-mapping.git && cd workplace-mapping
 pip install .            # 或直接用 bin/wm
 
 # 把技能裝給你的代理（下面是 Claude Code 的路徑）
@@ -119,6 +119,10 @@ echo "ack, on it" | wm --now $NOW action send --kind chat --target on-call --to 
 ```sh
 python3 -m unittest discover -s tests
 ```
+
+## 這個專案在哪
+
+正本、議題與發行版都在 GitLab：<https://gitlab.com/aa22396584/workplace-mapping>。其他地方的副本是唯讀鏡像。
 
 ## 授權
 

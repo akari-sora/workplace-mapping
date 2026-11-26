@@ -88,7 +88,7 @@ no longer needs your yes, that becomes a standing approval with your words as it
 Requires Python 3.11 or later.
 
 ```sh
-git clone <this repository> workplace-mapping && cd workplace-mapping
+git clone https://gitlab.com/aa22396584/workplace-mapping.git && cd workplace-mapping
 pip install .            # or run bin/wm straight from the checkout
 
 # install the skill for your agent (the path shown is Claude Code's)
@@ -138,6 +138,11 @@ To plug in your own chat tool or environment, see [docs/adapters.md](docs/adapte
 ```sh
 python3 -m unittest discover -s tests
 ```
+
+## Where this lives
+
+The canonical repository, issues and releases are on GitLab: <https://gitlab.com/aa22396584/workplace-mapping>. Any copy elsewhere is a
+read-only mirror.
 
 ## License
 
