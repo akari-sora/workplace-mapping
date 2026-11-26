@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><title>workplace-mapping</title><style>
+:root{--bg:#0E2326;--panel:#091A1D;--line:#2A5057;--text:#EAF2EF;--muted:#8FB0AD;--teal:#5FD0C0;--sand:#F0B35A;--faint:#4F7472}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:transparent}
+body{width:1600px;height:900px}
+.card{width:1600px;height:900px;background:var(--bg);border:2px solid var(--line);border-radius:36px;color:var(--text);
+ font-family:"PingFang TC","Avenir Next",sans-serif;position:relative;overflow:hidden}
+.mono{font-family:Menlo,Monaco,monospace}
+
+.step{position:absolute;width:440px;height:330px;background:var(--panel);border:2px solid var(--line);border-radius:24px;padding:28px 30px}
+.n{width:46px;height:46px;border-radius:23px;background:var(--sand);color:var(--bg);font-weight:700;font-size:26px;text-align:center;line-height:46px}
+.lab{font-size:31px;font-weight:600;line-height:1.28;margin-top:20px}
+.cmd{position:absolute;left:30px;right:30px;bottom:28px;font-size:22px;line-height:1.45;color:var(--teal);word-break:break-word}
+</style></head><body><div class="card"><svg width="1600" height="900" style="position:absolute;left:0;top:0" fill="none" stroke="var(--sand)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<defs><marker id="h" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto" markerUnits="userSpaceOnUse" viewBox="0 0 10 10"><path d="M1 1 L7 5 L1 9" stroke="var(--sand)" stroke-width="2.5"/></marker></defs>
+<path d="M512 245 H568" marker-end="url(#h)"/><path d="M1032 245 H1088" marker-end="url(#h)"/><path d="M1320 422 V478" marker-end="url(#h)"/><path d="M1088 655 H1032" marker-end="url(#h)"/>
+<path d="M568 655 H310 Q280 655 280 625 V422" marker-end="url(#h)"/></svg><div class="step" style="left:60px;top:80px"><div class="n mono">1</div><div class="lab">有人糾正代理</div></div><div class="step" style="left:580px;top:80px"><div class="n mono">2</div><div class="lab">一次呼叫就記下來，附出處</div><div class="cmd mono">wm note add &quot;Reply inside the thread&quot; --to card:Mara</div></div><div class="step" style="left:1100px;top:80px"><div class="n mono">3</div><div class="lab">第二次：改由指令來擋</div><div class="cmd mono">wm rule add</div></div><div class="step" style="left:1100px;top:490px"><div class="n mono">4</div><div class="lab">每次送出都先檢查、核准、只送一次、再讀回</div><div class="cmd mono">wm action send</div></div><div class="step" style="left:580px;top:490px"><div class="n mono">5</div><div class="lab">收工寫好交接，下一個工作階段從它開始</div><div class="cmd mono">wm wrapup write → wm brief</div></div></div></body></html>

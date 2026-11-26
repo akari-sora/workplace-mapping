@@ -1,0 +1,54 @@
+# workplace-mapping configuration. Reference: docs/cli.md in the workplace-mapping repository.
+[workplace]
+name = "{{name}}"
+timezone = ""                # IANA name such as "Europe/Berlin"; empty = this machine's local time
+us = ["us", "me"]            # how your side is written in tables and ledgers
+
+[paths]
+skills = ".agents/skills"
+commitments = "worklog/commitments.md"
+notes = "worklog/inbox.md"
+worklog = "worklog"
+evidence = "data/evidence.json"
+rules = "rules.toml"
+state = ".wm"                # add ".wm/" to .gitignore
+
+[handoff]
+start_heading = "Start here"
+unpushed_heading = "Unpushed commits"
+lookback_days = 7
+
+[next]
+stale_hours = 72
+
+# resident_host under [workplace]: the machine that holds logins and runs long-lived services (empty = any).
+
+# --- Where things live. One [[system]] per system; wm access check runs the probes. ---
+# [[system]]
+# id = "tracker"
+# what = "ticket tracker"
+# reach = "direct"             # direct | vpn:<name> | desktop:<name> | via:<host> | person:<who>
+# hosts = []                   # hostnames that can reach it; empty = any
+# login = ""                   # how you log in (never the credentials themselves)
+# probe = ""                   # read-only command; exit 0 = reachable
+# may_leave = "notes"          # nothing | notes | code | anything
+# src = ""
+
+# --- Chats. One [[channel]] per chat; kind is slack | teams | telegram | dingtalk | lark | wecom | custom. ---
+# [[channel]]
+# id = "team"
+# kind = "custom"
+# what = ""
+# mention = "@\\S+"
+# threads = true
+# max_chars = 0
+# send = ""                    # command that sends; the message arrives on stdin (docs/adapters.md)
+# src = ""
+
+# --- Everything the agent can do. wm catalog lists them; wm run <id> runs the read-only ones. ---
+# [[command]]
+# id = "tickets.mine"
+# what = "my open tickets"
+# run = "tools/tickets mine"
+# writes = false               # true = only through wm action
+# system = "tracker"

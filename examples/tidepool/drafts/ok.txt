@@ -1,0 +1,1 @@
+@ilse the CSV export is fixed: last night's scheduled run produced both files and the row counts match.

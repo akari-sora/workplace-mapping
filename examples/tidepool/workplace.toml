@@ -1,0 +1,83 @@
+[workplace]
+name = "tidepool"
+timezone = "Europe/Lisbon"
+us = ["us", "me"]
+
+[paths]
+skills = ".agents/skills"
+commitments = "worklog/commitments.md"
+notes = "worklog/inbox.md"
+worklog = "worklog"
+evidence = "data/evidence.json"
+rules = "rules.toml"
+state = ".wm"
+
+[handoff]
+start_heading = "Start here"
+unpushed_heading = "Unpushed commits"
+lookback_days = 7
+
+[next]
+stale_hours = 72
+
+# Where things live. Tidepool is "direct" for the tracker and "network-gated" for flags.
+[[system]]
+id = "tracker"
+what = "requests and tickets"
+reach = "direct"
+login = "company single sign-on"
+may_leave = "notes"
+src = "Mara, #4361, 9 March 2026"
+
+[[system]]
+id = "flags"
+what = "feature flag settings and the per-flag dashboard"
+reach = "vpn:office"
+login = "single sign-on plus a one-time code"
+may_leave = "nothing"
+src = "Okafor, verbal, 9 March 2026"
+# probe = "curl -fsS -m 5 -o /dev/null https://flags.tidepool.example/health"
+
+# Chats. The send command here is a stand-in that writes to a local outbox, so the example runs offline.
+[[channel]]
+id = "release"
+kind = "custom"
+what = "what went live and what is about to"
+threads = false
+max_chars = 600
+send = "python3 tools/chat_send.py release"
+readback = "python3 tools/chat_find.py release"
+src = "Mara, #4361, 9 March 2026"
+
+[[channel]]
+id = "app-team"
+kind = "custom"
+what = "day-to-day questions; reply inside threads"
+threads = true
+send = "python3 tools/chat_send.py app-team"
+readback = "python3 tools/chat_find.py app-team"
+src = "N-20260310-01"
+
+[[channel]]
+id = "on-call"
+kind = "custom"
+what = "rollout windows and incidents; no product questions"
+threads = true
+send = "python3 tools/chat_send.py on-call"
+readback = "python3 tools/chat_find.py on-call"
+src = "Okafor, verbal, 9 March 2026"
+
+# Everything the agent can do, behind one entry point: wm catalog, wm run <id>.
+[[command]]
+id = "flags.status"
+what = "every flag and its state in the three environments"
+run = "python3 tools/flags.py status"
+writes = false
+system = "flags"
+
+[[command]]
+id = "flags.set"
+what = "create or switch a flag; payload: <flag> <on|off|internal|N%> <environment|all>"
+run = "python3 tools/flags.py set"
+writes = true
+system = "flags"

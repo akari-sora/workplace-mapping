@@ -1,0 +1,19 @@
+# Checks a message draft must pass before it is sent: wm outbound check --to <person> < draft
+# Add a rule the second time you are corrected for the same kind of thing. Every rule needs a src.
+#
+# [[outbound]]
+# id = "claim-needs-receipt"
+# when = "(?i)\\b(done|shipped|deployed|fixed)\\b"
+# require_receipt = true
+# message = "A completion claim needs a verified receipt."
+# src = "N-YYYYMMDD-NN"
+#
+# Standing approvals: a class of action the user said no longer needs their yes. Keep their words in src.
+#
+# [[standing]]
+# id = "ack-in-team"
+# kind = "chat"
+# targets = ["team"]
+# match = "(?i)^(ack|received|on it)\\b"
+# max_chars = 80
+# src = "user, YYYY-MM-DD: <their words>"

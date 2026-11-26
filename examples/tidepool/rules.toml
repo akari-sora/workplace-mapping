@@ -1,0 +1,24 @@
+# Checks a message draft must pass before it is sent.
+
+[[outbound]]
+id = "claim-needs-receipt"
+when = "(?i)\\b(done|shipped|deployed|fixed|live)\\b"
+require_receipt = true
+message = "A completion claim needs a verified receipt that covers every affected place."
+src = "N-20260312-02"
+
+[[outbound]]
+id = "release-mentions-requester"
+channels = ["release"]
+require = "@\\S+"
+message = "A release notice must @ the person who asked for the change."
+src = "N-20260312-01"
+
+# The user said acknowledgements in on-call can go out without asking (12 March 2026).
+[[standing]]
+id = "ack-on-call"
+kind = "chat"
+targets = ["on-call"]
+match = "(?i)^(ack|received|on it)\\b"
+max_chars = 80
+src = "user, 2026-03-12: acknowledgements in on-call do not need my OK"

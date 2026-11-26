@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {"type": "command", "command": "wm --root \"$CLAUDE_PROJECT_DIR\" brief --hook", "timeout": 10}
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {"type": "command", "command": "wm --root \"$CLAUDE_PROJECT_DIR\" stop-gate", "timeout": 20}
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__your_chat__send_message",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "wm --root \"$CLAUDE_PROJECT_DIR\" outbound hook --text-field text --to-field recipient",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

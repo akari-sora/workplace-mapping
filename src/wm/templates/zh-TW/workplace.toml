@@ -1,0 +1,54 @@
+# workplace-mapping 設定。完整說明見 workplace-mapping 倉庫的 docs/cli.md。
+[workplace]
+name = "{{name}}"
+timezone = ""                # IANA 名稱，例如 "Asia/Taipei"；留空＝這台機器的本地時間
+us = ["我方", "us", "me"]     # 表格與帳本裡怎麼寫「我方」
+
+[paths]
+skills = ".agents/skills"
+commitments = "worklog/commitments.md"
+notes = "worklog/inbox.md"
+worklog = "worklog"
+evidence = "data/evidence.json"
+rules = "rules.toml"
+state = ".wm"                # 把 ".wm/" 加進 .gitignore
+
+[handoff]
+start_heading = "明天從哪開始"
+unpushed_heading = "未推提交"
+lookback_days = 7
+
+[next]
+stale_hours = 72
+
+# [workplace] 底下可加 resident_host：握著登入狀態、跑長時間服務的那台機器（留空＝任何一台）。
+
+# --- 東西在哪裡。一個系統一筆 [[system]]；wm access check 會跑探測。 ---
+# [[system]]
+# id = "tracker"
+# what = "工單系統"
+# reach = "direct"             # direct | vpn:<名稱> | desktop:<名稱> | via:<主機> | person:<誰>
+# hosts = []                   # 哪些主機到得了；留空＝任何一台
+# login = ""                   # 怎麼登入（不要寫帳密）
+# probe = ""                   # 唯讀指令；結束碼 0 ＝連得到
+# may_leave = "notes"          # nothing | notes | code | anything
+# src = ""
+
+# --- 群組。一個群一筆 [[channel]]；kind 可填 slack | teams | telegram | dingtalk | lark | wecom | custom。 ---
+# [[channel]]
+# id = "team"
+# kind = "custom"
+# what = ""
+# mention = "@\\S+"
+# threads = true
+# max_chars = 0
+# send = ""                    # 送訊息的指令；訊息內容從 stdin 進來（見 docs/adapters.md）
+# src = ""
+
+# --- 代理能做的每件事。wm catalog 列出全部；wm run <代號> 執行唯讀的。 ---
+# [[command]]
+# id = "tickets.mine"
+# what = "我名下還沒關的工單"
+# run = "tools/tickets mine"
+# writes = false               # true ＝只能經 wm action 執行
+# system = "tracker"

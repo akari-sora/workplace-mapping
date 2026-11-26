@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>workplace-mapping</title><style>
+:root{--bg:#0E2326;--panel:#091A1D;--line:#2A5057;--text:#EAF2EF;--muted:#8FB0AD;--teal:#5FD0C0;--sand:#F0B35A;--faint:#4F7472}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:transparent}
+body{width:1600px;height:760px}
+.card{width:1600px;height:760px;background:var(--bg);border:2px solid var(--line);border-radius:36px;color:var(--text);
+ font-family:"Avenir Next","Helvetica Neue","PingFang TC",sans-serif;position:relative;overflow:hidden}
+.mono{font-family:Menlo,Monaco,monospace}
+
+.card{padding:46px 64px}
+.top{display:flex;justify-content:space-between;align-items:baseline}
+h1{font-size:56px;font-weight:700;letter-spacing:-.5px;color:var(--sand)}
+.leg{display:flex;gap:34px;font-size:26px;color:var(--muted)}.leg span{display:flex;align-items:center;gap:12px}
+.leg i{width:34px;height:16px;border-radius:8px;display:block}
+.b{background:var(--faint)}.n{background:var(--teal)}
+.cols{display:flex;gap:64px;margin-top:30px}
+section{width:704px}
+h2{font-size:30px;font-weight:600;padding-bottom:12px;border-bottom:2px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+h2 small{font-size:22px;font-weight:400;color:var(--muted)}
+.row{margin-top:20px}
+.rl{display:flex;justify-content:space-between;align-items:baseline;font-size:28px;margin-bottom:10px}
+.rl b{font-size:28px;color:var(--sand);font-weight:700}
+.bar{display:flex;align-items:center;height:36px;margin-top:6px}
+.bar i{display:block;height:28px;border-radius:5px 14px 14px 5px}
+.bar em{font-style:normal;font-size:25px;margin-left:14px;color:var(--text)}
+.cap{position:absolute;left:64px;bottom:34px;font-size:25px;color:var(--muted)}
+</style></head><body><div class="card"><div class="top"><h1>Built to be cheap to run</h1>
+<div class="leg"><span><i class="b"></i>First draft</span><span><i class="n"></i>Now</span></div></div>
+<div class="cols"><section><h2>What the agent reads, in bytes<small>each row on its own scale</small></h2><div class="row"><div class="rl"><span>Skill text loaded in a session</span><b>6.4× smaller</b></div>
+<div class="bar"><i class="b" style="width:560.0px"></i><em class="mono">25,593</em></div>
+<div class="bar"><i class="n" style="width:87.0px"></i><em class="mono">3,975</em></div></div><div class="row"><div class="rl"><span>wm next for three items</span><b>4.9× smaller</b></div>
+<div class="bar"><i class="b" style="width:560.0px"></i><em class="mono">2,517</em></div>
+<div class="bar"><i class="n" style="width:114.8px"></i><em class="mono">516</em></div></div><div class="row"><div class="rl"><span>A check that passes</span><b>319× smaller</b></div>
+<div class="bar"><i class="b" style="width:560.0px"></i><em class="mono">958</em></div>
+<div class="bar"><i class="n" style="width:5.0px"></i><em class="mono">3</em></div></div></section>
+<section><h2>Calls per task</h2><div class="row"><div class="rl"><span>Record a correction</span><b>3× fewer</b></div>
+<div class="bar"><i class="b" style="width:420.0px"></i><em class="mono">3</em></div>
+<div class="bar"><i class="n" style="width:140.0px"></i><em class="mono">1</em></div></div><div class="row"><div class="rl"><span>Send a pre-approved message</span><b>3× fewer</b></div>
+<div class="bar"><i class="b" style="width:420.0px"></i><em class="mono">3</em></div>
+<div class="bar"><i class="n" style="width:140.0px"></i><em class="mono">1</em></div></div><div class="row"><div class="rl"><span>End the day</span><b>4× fewer</b></div>
+<div class="bar"><i class="b" style="width:560.0px"></i><em class="mono">4</em></div>
+<div class="bar"><i class="n" style="width:140.0px"></i><em class="mono">1</em></div></div></section></div>
+<div class="cap">Measured on the project&#x27;s example, first draft versus now.</div></div></body></html>

@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": "REQ-12",
+      "title": "Tide alerts: push a notice one hour before low tide",
+      "state": "F3",
+      "evidence": "flag tide_alerts on for the internal list, read back from the settings page",
+      "at": "2026-03-12T11:05:00+00:00"
+    },
+    {
+      "id": "REQ-15",
+      "title": "Moon phase strip on the day view",
+      "state": "F1",
+      "evidence": "Ilse agreed in the request thread (#4398)",
+      "at": "2026-03-11T15:40:00+00:00"
+    },
+    {
+      "id": "REQ-9",
+      "title": "CSV export of saved locations",
+      "state": "F2",
+      "evidence": "flag csv_export exists and is off in all three environments, read back",
+      "at": "2026-03-12T09:20:00+00:00"
+    }
+  ],
+  "receipts": [
+    {
+      "id": "RCPT-7",
+      "what": "scheduled export ran on staging and production at 02:00; both files opened and row counts match the saved locations",
+      "at": "2026-03-12T16:20:00+00:00",
+      "verified": true
+    }
+  ]
+}

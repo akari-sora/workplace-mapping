@@ -1,0 +1,12 @@
+{
+  "csv_export": {
+    "beta": "off",
+    "production": "off",
+    "staging": "off"
+  },
+  "tide_alerts": {
+    "beta": "internal",
+    "production": "internal",
+    "staging": "internal"
+  }
+}

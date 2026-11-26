@@ -1,0 +1,19 @@
+# 訊息草稿送出前要過的檢查：wm outbound check --to <對方> < 草稿
+# 同一類事被糾正第二次，就在這裡加一條。每條都要有 src。
+#
+# [[outbound]]
+# id = "claim-needs-receipt"
+# when = "完成|已上線|修好了"
+# require_receipt = true
+# message = "說完成之前，要有一張驗證過的收據。"
+# src = "N-YYYYMMDD-NN"
+#
+# 常態授權：使用者說過「這類以後不用問」的動作。src 寫他的原話。
+#
+# [[standing]]
+# id = "ack-in-team"
+# kind = "chat"
+# targets = ["team"]
+# match = "^(收到|好的|我來處理)"
+# max_chars = 40
+# src = "使用者 YYYY-MM-DD：<原話>"
